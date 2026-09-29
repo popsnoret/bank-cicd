@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+const error: number = "Detta är ett errormeddelande.";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-rose-100 text-slate-900">
