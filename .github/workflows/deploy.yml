@@ -29,3 +29,21 @@ jobs:
       - name: Bygg frontend
         working-directory: ./frontend
         run: npm run build
+
+  deploy:
+    needs: check-frontend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy till EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            cd /home/ubuntu/docker-bank
+            git pull
+            sudo docker compose down
+            sudo docker compose up --build -d
