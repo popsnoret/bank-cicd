@@ -1,3 +1,5 @@
+Länk: http://16.171.141.11:3000/
+
 # Skapa en Banksajt och publicera på aws
 
 I dagens uppgift ska vi öva på att skapa en react-sajt med backend i express och publicera den på en ec2 instans i aws.
